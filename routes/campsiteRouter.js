@@ -13,17 +13,17 @@ campsiteRouter.route('/')
     //next passes control of application routing to next relevant routing method after this one otherwise would stop here.
 })
 .get((req,res) => {
-    res.end('Will send all the campsites to you');
+    res.send('Will send all the campsites to you');
 })
 .post((req,res) => {
-    res.end(`Will add the campsite: ${req.body.name} with the description: ${req.body.description}`);
+    res.send(`Will add the campsite: ${req.body.name} with the description: ${req.body.description}`);
 })
 .put((req,res) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /campsites');
+    res.send('PUT operation not supported on /campsites');
 })
 .delete((req,res) => {
-    res.end('Deleting all campsites');
+    res.send('Deleting all campsites');
 });
 
 
@@ -35,17 +35,17 @@ campsiteRouter.route('/:campsiteId')
     next();
 })
 .get((req,res) => {
-    res.end(`Will send the campsite: ${req.params.campsiteId}`);
+    res.send(`Will send the campsite: ${req.params.campsiteId}`);
 })
 .post((req,res) => {
-    res.end(`Will add the campsite: ${req.body.name} with the description: ${req.body.description}`);
+    res.send(`Will add the campsite: ${req.body.name} with the description: ${req.body.description}`);
 })
 .put((req,res) => {
     res.statusCode = 403;
-    res.end(`PUT operation not supported on /campsites/${req.params.campsiteId}`);
+    res.send(`PUT operation not supported on /campsites/${req.params.campsiteId}`);
 })
 .delete((req,res) => {
-    res.end('Deleting all campsites');
+    res.send('Deleting all campsites');
 });
 
 

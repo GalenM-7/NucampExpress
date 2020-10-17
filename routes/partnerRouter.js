@@ -13,17 +13,17 @@ partnerRouter.route('/')
     //next passes control of application routing to next relevant routing method after this one otherwise would stop here.
 })
 .get((req,res) => {
-    res.end('Will send all the partners to you');
+    res.send('Will send all the partners to you');
 })
 .post((req,res) => {
-    res.end(`Will add the partner: ${req.body.name} with the description: ${req.body.description}`);
+    res.send(`Will add the partner: ${req.body.name} with the description: ${req.body.description}`);
 })
 .put((req,res) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /partners');
+    res.send('PUT operation not supported on /partners');
 })
 .delete((req,res) => {
-    res.end('Deleting all partners');
+    res.send('Deleting all partners');
 });
 
 
@@ -35,17 +35,17 @@ partnerRouter.route('/:partnerId')
     next();
 })
 .get((req,res) => {
-    res.end(`Will send the partner: ${req.params.partnerId}`);
+    res.send(`Will send the partner: ${req.params.partnerId}`);
 })
 .post((req,res) => {
-    res.end(`Will add the partner: ${req.body.name} with the description: ${req.body.description}`);
+    res.send(`Will add the partner: ${req.body.name} with the description: ${req.body.description}`);
 })
 .put((req,res) => {
     res.statusCode = 403;
-    res.end(`PUT operation not supported on /partners/${req.params.partnerId}`);
+    res.send(`PUT operation not supported on /partners/${req.params.partnerId}`);
 })
 .delete((req,res) => {
-    res.end('Deleting all partners');
+    res.send('Deleting all partners');
 });
 
 

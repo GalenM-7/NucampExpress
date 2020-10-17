@@ -13,17 +13,17 @@ promotionRouter.route('/')
     //next passes control of application routing to next relevant routing method after this one otherwise would stop here.
 })
 .get((req,res) => {
-    res.end('Will send all the promotions to you');
+    res.send('Will send all the promotions to you');
 })
 .post((req,res) => {
-    res.end(`Will add the promotion: ${req.body.name} with the description: ${req.body.description}`);
+    res.send(`Will add the promotion: ${req.body.name} with the description: ${req.body.description}`);
 })
 .put((req,res) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /promotions');
+    res.send('PUT operation not supported on /promotions');
 })
 .delete((req,res) => {
-    res.end('Deleting all promotions');
+    res.send('Deleting all promotions');
 });
 
 
@@ -35,17 +35,17 @@ promotionRouter.route('/:promotionId')
     next();
 })
 .get((req,res) => {
-    res.end(`Will send the promotion: ${req.params.promotionId}`);
+    res.send(`Will send the promotion: ${req.params.promotionId}`);
 })
 .post((req,res) => {
-    res.end(`Will add the promotion: ${req.body.name} with the description: ${req.body.description}`);
+    res.send(`Will add the promotion: ${req.body.name} with the description: ${req.body.description}`);
 })
 .put((req,res) => {
     res.statusCode = 403;
-    res.end(`PUT operation not supported on /promotions/${req.params.promotionId}`);
+    res.send(`PUT operation not supported on /promotions/${req.params.promotionId}`);
 })
 .delete((req,res) => {
-    res.end('Deleting all promotions');
+    res.send('Deleting all promotions');
 });
 
 

@@ -38,7 +38,7 @@ promotionRouter.route('/:promotionId')
     res.end(`Will send the promotion: ${req.params.promotionId}`);
 })
 .post((req,res) => {
-    res.end(`Will add the campsite: ${req.body.name} with the description: ${req.body.description}`);
+    res.end(`Will add the promotion: ${req.body.name} with the description: ${req.body.description}`);
 })
 .put((req,res) => {
     res.statusCode = 403;

@@ -20,7 +20,7 @@ partnerRouter.route('/')
 })
 .put((req,res) => {
     res.statusCode = 403;
-    res.send('PUT operation not supported on /partners');
+    res.send("PUT operation not supported on /partners");
 })
 .delete((req,res) => {
     res.send('Deleting all partners');
@@ -41,8 +41,9 @@ partnerRouter.route('/:partnerId')
     res.send(`Will add the partner: ${req.body.name} with the description: ${req.body.description}`);
 })
 .put((req,res) => {
-    res.statusCode = 403;
-    res.send(`PUT operation not supported on /partners/${req.params.partnerId}`);
+    res.write(`Updating the partner: ${req.params.partnerId}\n`);
+    res.end(`Will update the partner: ${req.body.name}
+    with description: ${req.body.description}`);
 })
 .delete((req,res) => {
     res.send('Deleting all partners');
